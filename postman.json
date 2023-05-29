@@ -1,0 +1,2112 @@
+{
+	"info": {
+		"_postman_id": "0dbfcc0f-335d-4389-8354-38cccd943bf7",
+		"name": "Moru_task",
+		"description": "## Quiz Application\nSimple quiz application with user authentication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25927236"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin2\",\n    \"password\": \"admin\"\n    // \"user_type\":\"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/register/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"register",
+								""
+							]
+						},
+						"description": "### sign up user:\n* Provide user_type if you want to make it admin\n{\n    \"username\": \"admin\",\n    \"password\": \"admin\",\n    \"user_type\": \"admin\"\n}"
+					},
+					"response": [
+						{
+							"name": "create user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\":\"admin\",\n    \"password\":\"admin\",\n    \"user_type\":\"admin\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/register/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"register",
+										""
+									]
+								}
+							},
+							"status": "CREATED",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 May 2023 04:46:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User registered successfully.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "login user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin2\",\n    \"password\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/login/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"login",
+								""
+							]
+						},
+						"description": "## login user\nProvide username and password for it \n{\n    \"username\": \"admin\",\n    \"password\": \"admin\"\n}"
+					},
+					"response": [
+						{
+							"name": "login user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\":\"admin\",\n    \"password\":\"admin\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/login/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 May 2023 04:47:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "144"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI1MTA0MH0.60FEAFM4lowbNrwXvvFBAk7On3UqWY0Nsj-Hp9u1_nc\"\n}"
+						}
+					]
+				}
+			],
+			"description": "### Authentication",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTM1Mzg1OH0.C579kOAHzMG1X4XzGXx9f_ytBDryR2hHSDTVe75r5S",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Create category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTM1MzkwNX0.qMa-Pc6qqlG5hPFvZo0tEGLmRFk7pin7Ht_Mume0y6U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI4MDIwNH0.qB4vu47kp0dIXGhkXtjhI0Sq_5R8K-tOyJ9KHW3lDNc",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"this is cate 5\",\n    \"description\":\"this is cate 5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/categories/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								""
+							]
+						},
+						"description": "#### Crete category for Questions"
+					},
+					"response": [
+						{
+							"name": "Response create category",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"This is cate 2\",\n    \"description\":\"This is description 2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/categories/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"categories",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 May 2023 04:12:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "83"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": {\n        \"description\": \"This is description 2\",\n        \"id\": 2,\n        \"name\": \"This is cate 2\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTM1MzkwNX0.qMa-Pc6qqlG5hPFvZo0tEGLmRFk7pin7Ht_Mume0y6U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTM1MzkwNX0.qMa-Pc6qqlG5hPFvZo0tEGLmRFk7pin7Ht_Mume0y6U",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"This is cate 2\",\n    \"description\":\"This is description 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/categories/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								""
+							]
+						},
+						"description": "**Get all category**"
+					},
+					"response": [
+						{
+							"name": "Response all category",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"This is cate 2\",\n    \"description\":\"This is description 2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/categories/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"categories",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 May 2023 04:12:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "83"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": {\n        \"description\": \"This is description 2\",\n        \"id\": 2,\n        \"name\": \"This is cate 2\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTM1MzkwNX0.qMa-Pc6qqlG5hPFvZo0tEGLmRFk7pin7Ht_Mume0y6U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"This is cate 2\",\n    \"description\":\"This is description 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/categories/2/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"2",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update category",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"This is cate 2\",\n    \"description\":\"This is description 2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/categories/1/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"categories",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 May 2023 04:17:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Category updated successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTM1MzkwNX0.qMa-Pc6qqlG5hPFvZo0tEGLmRFk7pin7Ht_Mume0y6U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"This is cate 2\",\n    \"description\":\"This is description 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/categories/2/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"2",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete category",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"This is cate 2\",\n    \"description\":\"This is description 2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/categories/1/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"categories",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 May 2023 04:17:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Category updated successfully\"\n}"
+						}
+					]
+				}
+			],
+			"description": "### Category",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI2NzQ2M30.1VCMgz8VycleiD7oMd596QnmGk1UBm4lwFaG499vW08",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Question",
+			"item": [
+				{
+					"name": "Create Questions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjMsImV4cCI6MTY4NTM2Mjg5MX0.dLo7lRVokmrbLqqGprQNxB0-w8r8viohld2H2wwee1A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI4MDM2OH0.Q6e-cfemQzhQEPCUSOsyyY8UZguO6c_NBIJTkCIfCw",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\":\"This is question three\",\n    \"category_id\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/questions/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"questions",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Questions",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"question\":\"This is question four\",\n    \"category_id\":1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/questions/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"questions",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 May 2023 04:25:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": {\n        \"category\": 1,\n        \"id\": 4,\n        \"question\": \"This is question four\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all questions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjMsImV4cCI6MTY4NTM2Mjg5MX0.dLo7lRVokmrbLqqGprQNxB0-w8r8viohld2H2wwee1A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI3MzcwMn0.mgJlmhgf2OfVQW8Ba7jhUIiHIgk085AEJpzcmyZ7rzQ",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\":\"This is question four\",\n    \"category_id\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/questions/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"questions",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all questions",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/questions/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"questions",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 May 2023 04:26:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "243"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"questions\": [\n        {\n            \"category\": 1,\n            \"id\": 1,\n            \"question\": \"This is question one\"\n        },\n        {\n            \"category\": 2,\n            \"id\": 2,\n            \"question\": \"This is question two\"\n        },\n        {\n            \"category\": 2,\n            \"id\": 3,\n            \"question\": \"This is question Three\"\n        },\n        {\n            \"category\": 1,\n            \"id\": 4,\n            \"question\": \"This is question four\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "update questions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjMsImV4cCI6MTY4NTM2Mjg5MX0.dLo7lRVokmrbLqqGprQNxB0-w8r8viohld2H2wwee1A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\":\"This is question four updated\",\n    \"category_id\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/questions/1/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"questions",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update questions",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"question\":\"This is question four updated\",\n    \"category_id\":1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/questions/1/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"questions",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 May 2023 04:28:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": {\n        \"category\": 1,\n        \"id\": 1,\n        \"question\": \"This is question four updated\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Question",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTM1MzkwNX0.qMa-Pc6qqlG5hPFvZo0tEGLmRFk7pin7Ht_Mume0y6U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\":\"This is question four updated\",\n    \"category_id\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/questions/1/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"questions",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "### Questions"
+		},
+		{
+			"name": "Answer",
+			"item": [
+				{
+					"name": "Get all answers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTM2MjUwNn0.nbXeq4mZTNhhmsMyWNUzmKB6V28PJ1OBAWA9o0R7DeU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI3MzAwM30.hDB1225tSPIfZs_0LHavTAT3p4eGRgaIBjXcT_UF2bw",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/answers/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"answers",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all answers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/answers/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"answers",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 May 2023 05:07:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "521"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"answers\": [\n        {\n            \"answer\": \"This first answer for question one updated\",\n            \"id\": 1,\n            \"question_id\": 1\n        },\n        {\n            \"answer\": \"This first answer for question two\",\n            \"id\": 2,\n            \"question_id\": 2\n        },\n        {\n            \"answer\": \"This first answer for question two\",\n            \"id\": 3,\n            \"question_id\": 2\n        },\n        {\n            \"answer\": \"This first answer for question two\",\n            \"id\": 4,\n            \"question_id\": 2\n        },\n        {\n            \"answer\": \"This first answer for question two\",\n            \"id\": 5,\n            \"question_id\": 2\n        },\n        {\n            \"answer\": \"This first answer for question two\",\n            \"id\": 6,\n            \"question_id\": 2\n        },\n        {\n            \"answer\": \"This first answer for question three\",\n            \"id\": 7,\n            \"question_id\": 3\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "create answer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjMsImV4cCI6MTY4NTM2Mjg5MX0.dLo7lRVokmrbLqqGprQNxB0-w8r8viohld2H2wwee1A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI3MzAwM30.hDB1225tSPIfZs_0LHavTAT3p4eGRgaIBjXcT_UF2bw",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"answer\":\"This is answer 6\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/answers/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"answers",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create answer",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"question_id\":3,\n    \"answer\":\"This first answer for question three\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/answers/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"answers",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 May 2023 05:06:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "82"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": {\n        \"answer\": \"This first answer for question three\",\n        \"id\": 7,\n        \"question\": 3\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update answer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjMsImV4cCI6MTY4NTM2Mjg5MX0.dLo7lRVokmrbLqqGprQNxB0-w8r8viohld2H2wwee1A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"answer\": \"This first answer for question one updated\",\n    \"question_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/answers/1/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"answers",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update answer",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"answer\": \"This first answer for question one updated\",\n    \"question_id\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/answers/1/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"answers",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 May 2023 05:06:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "88"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": {\n        \"answer\": \"This first answer for question one updated\",\n        \"id\": 1,\n        \"question\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete answer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjMsImV4cCI6MTY4NTM2Mjg5MX0.dLo7lRVokmrbLqqGprQNxB0-w8r8viohld2H2wwee1A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/answers/2/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"answers",
+								"2",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete answer",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/v1/answers/2/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"answers",
+										"2",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 09:35:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"DELETE request processed successfully\"\n}"
+						}
+					]
+				}
+			],
+			"description": "### Answers"
+		},
+		{
+			"name": "Quiz",
+			"item": [
+				{
+					"name": "Create Quiz",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTM1MzkwNX0.qMa-Pc6qqlG5hPFvZo0tEGLmRFk7pin7Ht_Mume0y6U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI3MzAwM30.hDB1225tSPIfZs_0LHavTAT3p4eGRgaIBjXcT_UF2bw",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question_id\":4,\n    \"answer_id\":6,\n    \"user_id\":1,\n    \"score\":5\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/quizs/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quizs",
+								""
+							]
+						},
+						"description": "Endpoint: Create Quiz Entry\n\nDescription: This endpoint allows the creation of a quiz entry with the provided information.\n\nHTTP Method: POST\n\nRequest Body:\n\n- question_id: The ID of the question for the quiz entry.\n- answer_id: The ID of the answer selected for the quiz entry.\n- score: The score obtained for the quiz entry.\n- user_id: The ID of the user associated with the quiz entry.\n    \n\nRequest Example:\n\n```\nPOST /create-quiz\nContent-Type: application/json\n{\n  \"question_id\": 123,\n  \"answer_id\": 456,\n  \"score\": 8,\n  \"user_id\": 789\n}\n\n```\n\nResponse:\n\n- 200 OK: The quiz entry was successfully created.\n- 400 Bad Request: Invalid or missing data provided.\n- 404 Not Found: Question, answer, or user not found.\n    \n\nResponse Example (Successful):\n\n```\nHTTP/1.1 200 OK\nContent-Type: application/json\n{\n  \"message\": {\n    \"id\": 456,\n    \"question_id\": 123,\n    \"answer_id\": 456,\n    \"user_id\": 789,\n    \"score\": 8\n  }\n}\n\n```\n\nResponse Example (Invalid Data):\n\n```\nHTTP/1.1 400 Bad Request\nContent-Type: application/json\n{\n  \"message\": \"Please provide valid data\"\n}\n\n```"
+					},
+					"response": [
+						{
+							"name": "Create Quiz",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"question_id\":2,\n    \"answer_id\":2,\n    \"user_id\":1,\n    \"score\":5\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/quizs/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"quizs",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 May 2023 06:10:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": {\n        \"answer_id\": 2,\n        \"id\": 2,\n        \"question_id\": 2,\n        \"score\": 5,\n        \"user_id\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all Quiz",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTM2MTI3MX0.n-TL1_r04v-pACxlGfgB9dTvOWBVinMYqsRpstS41A8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI3MzAwM30.hDB1225tSPIfZs_0LHavTAT3p4eGRgaIBjXcT_UF2bw",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/quizs/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quizs",
+								""
+							]
+						},
+						"description": "### Get incomplete Quiz\n\nIf user is Admin: \n* Can see all user Quiz\n\nif user is guest:\n* Can see only incomplete quiz"
+					},
+					"response": [
+						{
+							"name": "Get all Quiz",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/quizs/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"quizs",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 May 2023 06:09:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "160"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"answer_id\": 1,\n            \"end_time\": \"Sun, 28 May 2023 11:48:43 GMT\",\n            \"id\": 1,\n            \"question_id\": 1,\n            \"score\": 5,\n            \"start_time\": \"Sun, 28 May 2023 11:48:43 GMT\",\n            \"user_id\": 1\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "filter quiz",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTM2MTI3MX0.n-TL1_r04v-pACxlGfgB9dTvOWBVinMYqsRpstS41A8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI3MjQ1NX0.wqQcTi539OpZoxXfaiOpG6rwHdZH6AghbDqS47BxZpI",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/quizs/?answer=This first answer for question one updated",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quizs",
+								""
+							],
+							"query": [
+								{
+									"key": "question",
+									"value": "This is question two",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "This is answer 3",
+									"disabled": true
+								},
+								{
+									"key": "answer",
+									"value": "This first answer for question one updated"
+								}
+							]
+						},
+						"description": "Endpoint: Get Quizzes\n\nDescription: This endpoint retrieves quizzes based on specified filters such as question, answer, and category.\n\nHTTP Method: GET\n\nQuery Parameters:\n\n- question (optional): Filter quizzes by question text.\n- answer (optional): Filter quizzes by answer text.\n- category (optional): Filter quizzes by category.\n    \n\nRequest Example:\n\n```\nGET /quizzes?question=example&answer=example&category=example\n\n```\n\nResponse:\n\n- 200 OK: Quizzes were successfully retrieved.\n- 404 Not Found: No quizzes found matching the provided filters.\n- 500 Internal Server Error: An error occurred while processing the request.\n    \n\nResponse Example (Successful):\n\n```\nHTTP/1.1 200 OK\nContent-Type: application/json\n{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"question\": {\n        \"question_id\": 123,\n        \"question_text\": \"Example question\"\n      },\n      \"answer\": {\n        \"answer_id\": 456,\n        \"answer_text\": \"Example answer\"\n      },\n      \"category\": \"Example category\",\n      \"score\": 8,\n      \"user_id\": 789,\n      \"start_time\": \"2023-05-29 12:00:00\",\n      \"end_time\": \"2023-05-29 12:30:00\"\n    },\n    {\n      \"id\": 2,\n      \"question\": {\n        \"question_id\": 789,\n        \"question_text\": \"Another question\"\n      },\n      \"answer\": {\n        \"answer_id\": 123,\n        \"answer_text\": \"Another answer\"\n      },\n      \"category\": \"Another category\",\n      \"score\": 5,\n      \"user_id\": 987,\n      \"start_time\": \"2023-05-29 13:00:00\",\n      \"end_time\": \"2023-05-29 13:30:00\"\n    }\n  ]\n}\n\n```\n\nResponse Example (No Quizzes Found):\n\n```\nHTTP/1.1 404 Not Found\nContent-Type: application/json\n{\n  \"message\": \"No quizzes found\"\n}\n\n```\n\nResponse Example (Error):\n\n```\nHTTP/1.1 500 Internal Server Error\nContent-Type: application/json\n{\n  \"message\": \"An error occurred\",\n  \"error\": \"Error message\"\n}\n\n```\n\nThe function extracts the filter parameters from the query string and constructs a query object using the `Quiz.query`. It applies the filters to the query by calling specific filter functions such as `filter_questions_by_text`, `filter_quizzes_by_answer`, and `filter_quizzes_by_category`. The resulting quizzes are transformed into a list of quiz data, including question, answer, category, score, user ID, start time, and end time. If quizzes are found, the response includes the quiz data. If no quizzes are found, a suitable error message is returned. If an error occurs during processing, an error message is returned."
+					},
+					"response": [
+						{
+							"name": "Get all Quiz",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/quizs/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"quizs",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 May 2023 06:09:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "160"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"answer_id\": 1,\n            \"end_time\": \"Sun, 28 May 2023 11:48:43 GMT\",\n            \"id\": 1,\n            \"question_id\": 1,\n            \"score\": 5,\n            \"start_time\": \"Sun, 28 May 2023 11:48:43 GMT\",\n            \"user_id\": 1\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "update quiz",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTM2MjE2OX0._uA-Bt0GSA0jSxG9YUen2u6LS77GlaN7z1-gA7Zqs64",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI3MzAwM30.hDB1225tSPIfZs_0LHavTAT3p4eGRgaIBjXcT_UF2bw",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question_id\":2,\n    \"answer_id\":1,\n    \"user_id\":1,\n    \"score\":5\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/quizs/1/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quizs",
+								"1",
+								""
+							]
+						},
+						"description": "Endpoint: Create Quiz Entry\n\nDescription: This endpoint allows the creation of a quiz entry with the provided information.\n\nHTTP Method: POST\n\nRequest Body:\n\n- question_id: The ID of the question for the quiz entry.\n- answer_id: The ID of the answer selected for the quiz entry.\n- score: The score obtained for the quiz entry.\n- user_id: The ID of the user associated with the quiz entry.\n    \n\nRequest Example:\n\n```\nPOST /create-quiz\nContent-Type: application/json\n{\n  \"question_id\": 123,\n  \"answer_id\": 456,\n  \"score\": 8,\n  \"user_id\": 789\n}\n\n```\n\nResponse:\n\n- 200 OK: The quiz entry was successfully created.\n- 400 Bad Request: Invalid or missing data provided.\n- 404 Not Found: Question, answer, or user not found.\n    \n\nResponse Example (Successful):\n\n```\nHTTP/1.1 200 OK\nContent-Type: application/json\n{\n  \"message\": {\n    \"id\": 456,\n    \"question_id\": 123,\n    \"answer_id\": 456,\n    \"user_id\": 789,\n    \"score\": 8\n  }\n}\n\n```\n\nResponse Example (Invalid Data):\n\n```\nHTTP/1.1 400 Bad Request\nContent-Type: application/json\n{\n  \"message\": \"Please provide valid data\"\n}\n\n```"
+					},
+					"response": [
+						{
+							"name": "Create Quiz",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"question_id\":2,\n    \"answer_id\":2,\n    \"user_id\":1,\n    \"score\":5\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/quizs/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"quizs",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 May 2023 06:10:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": {\n        \"answer_id\": 2,\n        \"id\": 2,\n        \"question_id\": 2,\n        \"score\": 5,\n        \"user_id\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Quiz",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTM2MjUwNn0.nbXeq4mZTNhhmsMyWNUzmKB6V28PJ1OBAWA9o0R7DeU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/quizs/2/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quizs",
+								"2",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete answer",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/v1/answers/2/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"answers",
+										"2",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 09:35:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"DELETE request processed successfully\"\n}"
+						}
+					]
+				}
+			],
+			"description": "### Quiz"
+		},
+		{
+			"name": "User Response",
+			"item": [
+				{
+					"name": "submmiting user quizz answer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjMsImV4cCI6MTY4NTM2Mjg5MX0.dLo7lRVokmrbLqqGprQNxB0-w8r8viohld2H2wwee1A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"question_id\":2,\n   \"answer_id\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/user-response/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user-response",
+								""
+							]
+						},
+						"description": "Endpoint: Submit Quiz Answer for Assigned User\n\nDescription: This endpoint allows users to submit an answer for a specific question in a quiz, based on their assignment.\n\nHTTP Method: POST\n\nRequest Body:\n\n- question_id: The ID of the question being answered\n- answer_id: The ID of the selected answer option\n    \n\nResponse:\n\n- 200 OK: Answer submission successful\n- 400 Bad Request: Invalid request parameters or missing required fields\n- 401 Unauthorized: User authentication failed\n- 403 Forbidden: User does not have permission to submit the answer\n- 404 Not Found: User or question not found"
+					},
+					"response": [
+						{
+							"name": "Quiz answer submission",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"question_id\":2,\n   \"answer_id\":2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/user-response/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user-response",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 May 2023 08:38:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"Your answer is submitted\",\n    \"status\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Get user response",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjMsImV4cCI6MTY4NTM2Mjg5MX0.dLo7lRVokmrbLqqGprQNxB0-w8r8viohld2H2wwee1A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI3NDI3M30.kVOtW_jP4QGM4LbmMUQzq9KRz3ophDOBXyHVr7f9uDU",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/user-response/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user-response",
+								""
+							]
+						},
+						"description": "Endpoint: Get User Responses\n\nDescription: This endpoint retrieves the responses submitted by the current user.\n\nResponse:\n\n- 200 OK: The user responses were successfully retrieved.\n- 401 Unauthorized: User authentication failed.\n- 404 Not Found: User or their responses were not found."
+					},
+					"response": [
+						{
+							"name": "summery for user response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/user-response/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user-response",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 May 2023 08:10:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "140"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"answer_id\": 2,\n            \"id\": 1,\n            \"is_true\": false,\n            \"question_id\": 1,\n            \"score\": 0\n        },\n        {\n            \"answer_id\": 1,\n            \"id\": 2,\n            \"is_true\": true,\n            \"question_id\": 1,\n            \"score\": 5\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"description": "### Object create when user submit the quiz"
+		},
+		{
+			"name": "score summery",
+			"item": [
+				{
+					"name": "get all summery",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjMsImV4cCI6MTY4NTM2Mjg5MX0.dLo7lRVokmrbLqqGprQNxB0-w8r8viohld2H2wwee1A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI2ODYzNn0.GTgFT0-EPMTtLdmo255Blr53-KJMx8HDgOwG5vAHxpg",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/user-score-summery/?quiz_id=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user-score-summery",
+								""
+							],
+							"query": [
+								{
+									"key": "quiz_id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Endpoint: Get Summary of User Quiz Scores\n\nDescription: This endpoint retrieves the summary of a user's scores for a specific quiz.\n\nHTTP Method: GET\n\nQuery Parameters:\n\n- user_id (obtained from current user): The ID of the user for whom to retrieve the quiz scores.\n- quiz_id: The ID of the quiz to retrieve the scores for.\n    \n\n- 200 OK: The quiz scores were successfully retrieved.\n- 400 Bad Request: Invalid user ID or missing quiz ID.\n- 401 Unauthorized: User authentication failed.\n- 404 Not Found: User or quiz not found.\n    \n\nResponse Example (Successful):\n\n```\nHTTP/1.1 200 OK\nContent-Type: application/json\n{\n  \"data\": 25,\n  \"user\": \"john_doe\"\n}\n\n```\n\nResponse Example (No Scores):\n\n```\nHTTP/1.1 200 OK\nContent-Type: application/json\n{\n  \"data\": [],\n  \"user\": \"john_doe\"\n}\n\n```\n\nResponse Example (Action Not Permitted):\n\n```\nHTTP/1.1 400 Bad Request\nContent-Type: application/json\n{\n  \"data\": \"You cannot perform this action\"\n}\n\n```"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "index route",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI2NjQwMH0.ryiI0NW2Sz92Dqe9Zfrk5VkDHdmD4FKNF2HkbR0hAcc",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}",
+					"host": [
+						"{{base_url}}"
+					]
+				},
+				"description": "### index route for testing"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjMsImV4cCI6MTY4NTM2Mjg5MX0.dLo7lRVokmrbLqqGprQNxB0-w8r8viohld2H2wwee1A",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "localhost:8000"
+		}
+	]
+}

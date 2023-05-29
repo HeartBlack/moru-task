@@ -1,0 +1,1552 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Moru_task",
+        "description": "## Quiz Application\nSimple quiz application with user authentication",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "noauthAuth": {
+                "type": "http",
+                "scheme": "noauth"
+            },
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "Auth",
+            "description": "### Authentication"
+        },
+        {
+            "name": "Category",
+            "description": "### Category"
+        },
+        {
+            "name": "Question",
+            "description": "### Questions"
+        },
+        {
+            "name": "Answer",
+            "description": "### Answers"
+        },
+        {
+            "name": "Quiz",
+            "description": "### Quiz"
+        },
+        {
+            "name": "User Response",
+            "description": "### Object create when user submit the quiz"
+        },
+        {
+            "name": "score summery"
+        }
+    ],
+    "paths": {
+        "/api/v1/register/": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "create user",
+                "description": "### sign up user:\n* Provide user_type if you want to make it admin\n{\n    \"username\": \"admin\",\n    \"password\": \"admin\",\n    \"user_type\": \"admin\"\n}",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "username": "admin2",
+                                    "password": "admin"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "CREATED",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Sun, 28 May 2023 04:46:17 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "44"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "message": "User registered successfully."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/login/": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "login user",
+                "description": "## login user\nProvide username and password for it \n{\n    \"username\": \"admin\",\n    \"password\": \"admin\"\n}",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "username": "admin2",
+                                    "password": "admin"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "noauthAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Sun, 28 May 2023 04:47:20 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "144"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI1MTA0MH0.60FEAFM4lowbNrwXvvFBAk7On3UqWY0Nsj-Hp9u1_nc"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/categories/": {
+            "post": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Create category",
+                "description": "#### Crete category for Questions",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "name": "this is cate 5",
+                                    "description": "this is cate 5"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI4MDIwNH0.qB4vu47kp0dIXGhkXtjhI0Sq_5R8K-tOyJ9KHW3lDNc"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Sun, 28 May 2023 04:12:54 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "83"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "message": {
+                                        "description": "This is description 2",
+                                        "id": 2,
+                                        "name": "This is cate 2"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Get all category",
+                "description": "**Get all category**",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI4NDEzM30.IkREq6rZb2YlItk7tpJi5lEKV0j2xQhLs_4D62orK-w"
+                    }
+                ],
+               
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Sun, 28 May 2023 04:12:54 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "83"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "message": {
+                                        "description": "This is description 2",
+                                        "id": 2,
+                                        "name": "This is cate 2"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/categories/2/": {
+            "put": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "update category",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "name": "This is cate 2",
+                                    "description": "This is description 2"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Sun, 28 May 2023 04:17:45 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "44"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "message": "Category updated successfully"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "delete category",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Sun, 28 May 2023 04:17:45 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "44"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "message": "Category updated successfully"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/questions/": {
+            "post": {
+                "tags": [
+                    "Question"
+                ],
+                "summary": "Create Questions",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "question": "This is question three",
+                                    "category_id": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI4MDM2OH0.Q6e-cfemQzhQEPCUSOsyyY8UZguO6c_NBIJTkCIfCw"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Sun, 28 May 2023 04:25:26 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "69"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "message": {
+                                        "category": 1,
+                                        "id": 4,
+                                        "question": "This is question four"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Question"
+                ],
+                "summary": "Get all questions",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Sun, 28 May 2023 04:26:27 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "243"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "questions": [
+                                        {
+                                            "category": 1,
+                                            "id": 1,
+                                            "question": "This is question one"
+                                        },
+                                        {
+                                            "category": 2,
+                                            "id": 2,
+                                            "question": "This is question two"
+                                        },
+                                        {
+                                            "category": 2,
+                                            "id": 3,
+                                            "question": "This is question Three"
+                                        },
+                                        {
+                                            "category": 1,
+                                            "id": 4,
+                                            "question": "This is question four"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/questions/1/": {
+            "put": {
+                "tags": [
+                    "Question"
+                ],
+                "summary": "update questions",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "question": "This is question four updated",
+                                    "category_id": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Sun, 28 May 2023 04:28:35 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "77"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "message": {
+                                        "category": 1,
+                                        "id": 1,
+                                        "question": "This is question four updated"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Question"
+                ],
+                "summary": "Delete Question",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/answers/": {
+            "get": {
+                "tags": [
+                    "Answer"
+                ],
+                "summary": "Get all answers",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Sun, 28 May 2023 05:07:22 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "521"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "answers": [
+                                        {
+                                            "answer": "This first answer for question one updated",
+                                            "id": 1,
+                                            "question_id": 1
+                                        },
+                                        {
+                                            "answer": "This first answer for question two",
+                                            "id": 2,
+                                            "question_id": 2
+                                        },
+                                        {
+                                            "answer": "This first answer for question two",
+                                            "id": 3,
+                                            "question_id": 2
+                                        },
+                                        {
+                                            "answer": "This first answer for question two",
+                                            "id": 4,
+                                            "question_id": 2
+                                        },
+                                        {
+                                            "answer": "This first answer for question two",
+                                            "id": 5,
+                                            "question_id": 2
+                                        },
+                                        {
+                                            "answer": "This first answer for question two",
+                                            "id": 6,
+                                            "question_id": 2
+                                        },
+                                        {
+                                            "answer": "This first answer for question three",
+                                            "id": 7,
+                                            "question_id": 3
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Answer"
+                ],
+                "summary": "create answer",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "answer": "This is answer 6"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI3MzAwM30.hDB1225tSPIfZs_0LHavTAT3p4eGRgaIBjXcT_UF2bw"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Sun, 28 May 2023 05:06:51 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "82"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "message": {
+                                        "answer": "This first answer for question three",
+                                        "id": 7,
+                                        "question": 3
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/answers/1/": {
+            "put": {
+                "tags": [
+                    "Answer"
+                ],
+                "summary": "update answer",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "answer": "This first answer for question one updated",
+                                    "question_id": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Sun, 28 May 2023 05:06:13 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "88"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "message": {
+                                        "answer": "This first answer for question one updated",
+                                        "id": 1,
+                                        "question": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/answers/2/": {
+            "delete": {
+                "tags": [
+                    "Answer"
+                ],
+                "summary": "delete answer",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Mon, 29 May 2023 09:35:46 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "57"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "message": "DELETE request processed successfully"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/quizs/": {
+            "post": {
+                "tags": [
+                    "Quiz"
+                ],
+                "summary": "filter quiz",
+                "description": "Endpoint: Get Quizzes\n\nDescription: This endpoint retrieves quizzes based on specified filters such as question, answer, and category.\n\nHTTP Method: GET\n\nQuery Parameters:\n\n- question (optional): Filter quizzes by question text.\n- answer (optional): Filter quizzes by answer text.\n- category (optional): Filter quizzes by category.\n    \n\nRequest Example:\n\n```\nGET /quizzes?question=example&answer=example&category=example\n\n```\n\nResponse:\n\n- 200 OK: Quizzes were successfully retrieved.\n- 404 Not Found: No quizzes found matching the provided filters.\n- 500 Internal Server Error: An error occurred while processing the request.\n    \n\nResponse Example (Successful):\n\n```\nHTTP/1.1 200 OK\nContent-Type: application/json\n{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"question\": {\n        \"question_id\": 123,\n        \"question_text\": \"Example question\"\n      },\n      \"answer\": {\n        \"answer_id\": 456,\n        \"answer_text\": \"Example answer\"\n      },\n      \"category\": \"Example category\",\n      \"score\": 8,\n      \"user_id\": 789,\n      \"start_time\": \"2023-05-29 12:00:00\",\n      \"end_time\": \"2023-05-29 12:30:00\"\n    },\n    {\n      \"id\": 2,\n      \"question\": {\n        \"question_id\": 789,\n        \"question_text\": \"Another question\"\n      },\n      \"answer\": {\n        \"answer_id\": 123,\n        \"answer_text\": \"Another answer\"\n      },\n      \"category\": \"Another category\",\n      \"score\": 5,\n      \"user_id\": 987,\n      \"start_time\": \"2023-05-29 13:00:00\",\n      \"end_time\": \"2023-05-29 13:30:00\"\n    }\n  ]\n}\n\n```\n\nResponse Example (No Quizzes Found):\n\n```\nHTTP/1.1 404 Not Found\nContent-Type: application/json\n{\n  \"message\": \"No quizzes found\"\n}\n\n```\n\nResponse Example (Error):\n\n```\nHTTP/1.1 500 Internal Server Error\nContent-Type: application/json\n{\n  \"message\": \"An error occurred\",\n  \"error\": \"Error message\"\n}\n\n```\n\nThe function extracts the filter parameters from the query string and constructs a query object using the `Quiz.query`. It applies the filters to the query by calling specific filter functions such as `filter_questions_by_text`, `filter_quizzes_by_answer`, and `filter_quizzes_by_category`. The resulting quizzes are transformed into a list of quiz data, including question, answer, category, score, user ID, start time, and end time. If quizzes are found, the response includes the quiz data. If no quizzes are found, a suitable error message is returned. If an error occurs during processing, an error message is returned.",
+                "parameters": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Sun, 28 May 2023 06:10:28 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "73"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "message": {
+                                        "answer_id": 2,
+                                        "id": 2,
+                                        "question_id": 2,
+                                        "score": 5,
+                                        "user_id": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Quiz"
+                ],
+                "summary": "filter quiz",
+                "description": "Endpoint: Get Quizzes\n\nDescription: This endpoint retrieves quizzes based on specified filters such as question, answer, and category.\n\nHTTP Method: GET\n\nQuery Parameters:\n\n- question (optional): Filter quizzes by question text.\n- answer (optional): Filter quizzes by answer text.\n- category (optional): Filter quizzes by category.\n    \n\nRequest Example:\n\n```\nGET /quizzes?question=example&answer=example&category=example\n\n```\n\nResponse:\n\n- 200 OK: Quizzes were successfully retrieved.\n- 404 Not Found: No quizzes found matching the provided filters.\n- 500 Internal Server Error: An error occurred while processing the request.\n    \n\nResponse Example (Successful):\n\n```\nHTTP/1.1 200 OK\nContent-Type: application/json\n{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"question\": {\n        \"question_id\": 123,\n        \"question_text\": \"Example question\"\n      },\n      \"answer\": {\n        \"answer_id\": 456,\n        \"answer_text\": \"Example answer\"\n      },\n      \"category\": \"Example category\",\n      \"score\": 8,\n      \"user_id\": 789,\n      \"start_time\": \"2023-05-29 12:00:00\",\n      \"end_time\": \"2023-05-29 12:30:00\"\n    },\n    {\n      \"id\": 2,\n      \"question\": {\n        \"question_id\": 789,\n        \"question_text\": \"Another question\"\n      },\n      \"answer\": {\n        \"answer_id\": 123,\n        \"answer_text\": \"Another answer\"\n      },\n      \"category\": \"Another category\",\n      \"score\": 5,\n      \"user_id\": 987,\n      \"start_time\": \"2023-05-29 13:00:00\",\n      \"end_time\": \"2023-05-29 13:30:00\"\n    }\n  ]\n}\n\n```\n\nResponse Example (No Quizzes Found):\n\n```\nHTTP/1.1 404 Not Found\nContent-Type: application/json\n{\n  \"message\": \"No quizzes found\"\n}\n\n```\n\nResponse Example (Error):\n\n```\nHTTP/1.1 500 Internal Server Error\nContent-Type: application/json\n{\n  \"message\": \"An error occurred\",\n  \"error\": \"Error message\"\n}\n\n```\n\nThe function extracts the filter parameters from the query string and constructs a query object using the `Quiz.query`. It applies the filters to the query by calling specific filter functions such as `filter_questions_by_text`, `filter_quizzes_by_answer`, and `filter_quizzes_by_category`. The resulting quizzes are transformed into a list of quiz data, including question, answer, category, score, user ID, start time, and end time. If quizzes are found, the response includes the quiz data. If no quizzes are found, a suitable error message is returned. If an error occurs during processing, an error message is returned.",
+                "parameters": [
+                    {
+                        "name": "answer",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "This first answer for question one updated"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Sun, 28 May 2023 06:09:16 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "160"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "data": [
+                                        {
+                                            "answer_id": 1,
+                                            "end_time": "Sun, 28 May 2023 11:48:43 GMT",
+                                            "id": 1,
+                                            "question_id": 1,
+                                            "score": 5,
+                                            "start_time": "Sun, 28 May 2023 11:48:43 GMT",
+                                            "user_id": 1
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/quizs/1/": {
+            "put": {
+                "tags": [
+                    "Quiz"
+                ],
+                "summary": "Create Quiz",
+                "description": "Endpoint: Create Quiz Entry\n\nDescription: This endpoint allows the creation of a quiz entry with the provided information.\n\nHTTP Method: POST\n\nRequest Body:\n\n- question_id: The ID of the question for the quiz entry.\n- answer_id: The ID of the answer selected for the quiz entry.\n- score: The score obtained for the quiz entry.\n- user_id: The ID of the user associated with the quiz entry.\n    \n\nRequest Example:\n\n```\nPOST /create-quiz\nContent-Type: application/json\n{\n  \"question_id\": 123,\n  \"answer_id\": 456,\n  \"score\": 8,\n  \"user_id\": 789\n}\n\n```\n\nResponse:\n\n- 200 OK: The quiz entry was successfully created.\n- 400 Bad Request: Invalid or missing data provided.\n- 404 Not Found: Question, answer, or user not found.\n    \n\nResponse Example (Successful):\n\n```\nHTTP/1.1 200 OK\nContent-Type: application/json\n{\n  \"message\": {\n    \"id\": 456,\n    \"question_id\": 123,\n    \"answer_id\": 456,\n    \"user_id\": 789,\n    \"score\": 8\n  }\n}\n\n```\n\nResponse Example (Invalid Data):\n\n```\nHTTP/1.1 400 Bad Request\nContent-Type: application/json\n{\n  \"message\": \"Please provide valid data\"\n}\n\n```",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "question_id": 2,
+                                    "answer_id": 1,
+                                    "user_id": 1,
+                                    "score": 5
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Sun, 28 May 2023 06:10:28 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "73"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "message": {
+                                        "answer_id": 2,
+                                        "id": 2,
+                                        "question_id": 2,
+                                        "score": 5,
+                                        "user_id": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/quizs/2/": {
+            "delete": {
+                "tags": [
+                    "Quiz"
+                ],
+                "summary": "Delete Quiz",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Mon, 29 May 2023 09:35:46 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "57"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "message": "DELETE request processed successfully"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user-response/": {
+            "post": {
+                "tags": [
+                    "User Response"
+                ],
+                "summary": "submmiting user quizz answer",
+                "description": "Endpoint: Submit Quiz Answer for Assigned User\n\nDescription: This endpoint allows users to submit an answer for a specific question in a quiz, based on their assignment.\n\nHTTP Method: POST\n\nRequest Body:\n\n- question_id: The ID of the question being answered\n- answer_id: The ID of the selected answer option\n    \n\nResponse:\n\n- 200 OK: Answer submission successful\n- 400 Bad Request: Invalid request parameters or missing required fields\n- 401 Unauthorized: User authentication failed\n- 403 Forbidden: User does not have permission to submit the answer\n- 404 Not Found: User or question not found",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "question_id": 2,
+                                    "answer_id": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Sun, 28 May 2023 08:38:14 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "50"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "data": "Your answer is submitted",
+                                    "status": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "User Response"
+                ],
+                "summary": "Get user response",
+                "description": "Endpoint: Get User Responses\n\nDescription: This endpoint retrieves the responses submitted by the current user.\n\nResponse:\n\n- 200 OK: The user responses were successfully retrieved.\n- 401 Unauthorized: User authentication failed.\n- 404 Not Found: User or their responses were not found.",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Server": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "gunicorn"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Sun, 28 May 2023 08:10:18 GMT"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "close"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Content-Length": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "140"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "data": [
+                                        {
+                                            "answer_id": 2,
+                                            "id": 1,
+                                            "is_true": false,
+                                            "question_id": 1,
+                                            "score": 0
+                                        },
+                                        {
+                                            "answer_id": 1,
+                                            "id": 2,
+                                            "is_true": true,
+                                            "question_id": 1,
+                                            "score": 5
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user-score-summery/": {
+            "get": {
+                "tags": [
+                    "score summery"
+                ],
+                "summary": "get all summery",
+                "description": "Endpoint: Get Summary of User Quiz Scores\n\nDescription: This endpoint retrieves the summary of a user's scores for a specific quiz.\n\nHTTP Method: GET\n\nQuery Parameters:\n\n- user_id (obtained from current user): The ID of the user for whom to retrieve the quiz scores.\n- quiz_id: The ID of the quiz to retrieve the scores for.\n    \n\n- 200 OK: The quiz scores were successfully retrieved.\n- 400 Bad Request: Invalid user ID or missing quiz ID.\n- 401 Unauthorized: User authentication failed.\n- 404 Not Found: User or quiz not found.\n    \n\nResponse Example (Successful):\n\n```\nHTTP/1.1 200 OK\nContent-Type: application/json\n{\n  \"data\": 25,\n  \"user\": \"john_doe\"\n}\n\n```\n\nResponse Example (No Scores):\n\n```\nHTTP/1.1 200 OK\nContent-Type: application/json\n{\n  \"data\": [],\n  \"user\": \"john_doe\"\n}\n\n```\n\nResponse Example (Action Not Permitted):\n\n```\nHTTP/1.1 400 Bad Request\nContent-Type: application/json\n{\n  \"data\": \"You cannot perform this action\"\n}\n\n```",
+                "parameters": [
+                    {
+                        "name": "quiz_id",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/": {
+            "get": {
+                "tags": [
+                    "General"
+                ],
+                "summary": "index route",
+                "description": "### index route for testing",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6MTY4NTI2NjQwMH0.ryiI0NW2Sz92Dqe9Zfrk5VkDHdmD4FKNF2HkbR0hAcc"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
