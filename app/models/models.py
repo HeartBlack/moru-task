@@ -15,8 +15,8 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
-    user_type = db.Column(db.Enum(Role, name="role"), nullable=True)
-
+    user_type = db.Column(db.Enum(Role), nullable=True)
+    
     def __init__(self, username, password, user_type):
         self.username = username
         self.password = password

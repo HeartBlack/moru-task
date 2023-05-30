@@ -25,9 +25,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/register/",
+							"raw": "http://localhost:8000/api/v1/register/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -54,11 +54,10 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8000/register/",
+									"raw": "http://localhost:8000/register/",
 									"host": [
-										"localhost"
+										"http://localhost:8000"
 									],
-									"port": "8000",
 									"path": [
 										"register",
 										""
@@ -113,9 +112,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/login/",
+							"raw": "http://localhost:8000/api/v1/login/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -142,9 +141,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/api/v1/login/",
+									"raw": "http://localhost:8000/api/v1/login/",
 									"host": [
-										"{{base_url}}"
+										"http://localhost:8000"
 									],
 									"path": [
 										"api",
@@ -252,9 +251,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/categories/",
+							"raw": "http://localhost:8000/api/v1/categories/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -281,9 +280,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/categories/",
+									"raw": "http://localhost:8000/categories/",
 									"host": [
-										"{{base_url}}"
+										"http://localhost:8000"
 									],
 									"path": [
 										"categories",
@@ -356,9 +355,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/categories/",
+							"raw": "http://localhost:8000/api/v1/categories/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -385,9 +384,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/categories/",
+									"raw": "http://localhost:8000/categories/",
 									"host": [
-										"{{base_url}}"
+										"http://localhost:8000"
 									],
 									"path": [
 										"categories",
@@ -450,9 +449,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/categories/2/",
+							"raw": "http://localhost:8000/api/v1/categories/2/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -479,9 +478,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/categories/1/",
+									"raw": "http://localhost:8000/categories/1/",
 									"host": [
-										"{{base_url}}"
+										"http://localhost:8000"
 									],
 									"path": [
 										"categories",
@@ -545,9 +544,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/categories/2/",
+							"raw": "http://localhost:8000/api/v1/categories/2/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -574,9 +573,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/categories/1/",
+									"raw": "http://localhost:8000/categories/1/",
 									"host": [
-										"{{base_url}}"
+										"http://localhost:8000"
 									],
 									"path": [
 										"categories",
@@ -683,9 +682,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/questions/",
+							"raw": "http://localhost:8000/api/v1/questions/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -711,9 +710,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/questions/",
+									"raw": "http://localhost:8000/questions/",
 									"host": [
-										"{{base_url}}"
+										"http://localhost:8000"
 									],
 									"path": [
 										"questions",
@@ -786,9 +785,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/questions/",
+							"raw": "http://localhost:8000/api/v1/questions/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -805,9 +804,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/questions/",
+									"raw": "http://localhost:8000/questions/",
 									"host": [
-										"{{base_url}}"
+										"http://localhost:8000"
 									],
 									"path": [
 										"questions",
@@ -870,9 +869,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/questions/1/",
+							"raw": "http://localhost:8000/api/v1/questions/1/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -899,9 +898,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/questions/1/",
+									"raw": "http://localhost:8000/questions/1/",
 									"host": [
-										"{{base_url}}"
+										"http://localhost:8000"
 									],
 									"path": [
 										"questions",
@@ -965,9 +964,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/questions/1/",
+							"raw": "http://localhost:8000/api/v1/questions/1/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -1009,9 +1008,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/v1/answers/",
+							"raw": "http://localhost:8000/api/v1/answers/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -1028,11 +1027,10 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/answers/",
+									"raw": "http://localhost:8000/answers/",
 									"host": [
-										"localhost"
+										"http://localhost:8000"
 									],
-									"port": "8000",
 									"path": [
 										"answers",
 										""
@@ -1100,9 +1098,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/answers/",
+							"raw": "http://localhost:8000/api/v1/answers/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -1128,11 +1126,10 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8000/answers/",
+									"raw": "http://localhost:8000/answers/",
 									"host": [
-										"localhost"
+										"http://localhost:8000"
 									],
-									"port": "8000",
 									"path": [
 										"answers",
 										""
@@ -1194,9 +1191,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/answers/1/",
+							"raw": "http://localhost:8000/api/v1/answers/1/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -1223,11 +1220,10 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8000/answers/1/",
+									"raw": "http://localhost:8000/answers/1/",
 									"host": [
-										"localhost"
+										"http://localhost:8000"
 									],
-									"port": "8000",
 									"path": [
 										"answers",
 										"1",
@@ -1281,9 +1277,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/api/v1/answers/2/",
+							"raw": "http://localhost:8000/api/v1/answers/2/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -1301,11 +1297,10 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/v1/answers/2/",
+									"raw": "http://localhost:8000/api/v1/answers/2/",
 									"host": [
-										"localhost"
+										"http://localhost:8000"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"v1",
@@ -1383,9 +1378,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/quizs/",
+							"raw": "http://localhost:8000/api/v1/quizs/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -1412,11 +1407,10 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8000/quizs/",
+									"raw": "http://localhost:8000/quizs/",
 									"host": [
-										"localhost"
+										"http://localhost:8000"
 									],
-									"port": "8000",
 									"path": [
 										"quizs",
 										""
@@ -1476,9 +1470,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/v1/quizs/",
+							"raw": "http://localhost:8000/api/v1/quizs/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -1496,9 +1490,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/quizs/",
+									"raw": "http://localhost:8000/quizs/",
 									"host": [
-										"{{base_url}}"
+										"http://localhost:8000"
 									],
 									"path": [
 										"quizs",
@@ -1559,9 +1553,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/v1/quizs/?answer=This first answer for question one updated",
+							"raw": "http://localhost:8000/api/v1/quizs/?answer=This first answer for question one updated",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -1595,9 +1589,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/quizs/",
+									"raw": "http://localhost:8000/quizs/",
 									"host": [
-										"{{base_url}}"
+										"http://localhost:8000"
 									],
 									"path": [
 										"quizs",
@@ -1667,9 +1661,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/quizs/1/",
+							"raw": "http://localhost:8000/api/v1/quizs/1/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -1697,9 +1691,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/quizs/",
+									"raw": "http://localhost:8000/quizs/",
 									"host": [
-										"{{base_url}}"
+										"http://localhost:8000"
 									],
 									"path": [
 										"quizs",
@@ -1753,9 +1747,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/api/v1/quizs/2/",
+							"raw": "http://localhost:8000/api/v1/quizs/2/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -1773,9 +1767,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/api/v1/answers/2/",
+									"raw": "http://localhost:8000/api/v1/answers/2/",
 									"host": [
-										"{{base_url}}"
+										"http://localhost:8000"
 									],
 									"path": [
 										"api",
@@ -1847,9 +1841,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/api/v1/user-response/",
+							"raw": "http://localhost:8000/api/v1/user-response/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -1876,9 +1870,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/user-response/",
+									"raw": "http://localhost:8000/user-response/",
 									"host": [
-										"{{base_url}}"
+										"http://localhost:8000"
 									],
 									"path": [
 										"user-response",
@@ -1939,9 +1933,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/v1/user-response/",
+							"raw": "http://localhost:8000/api/v1/user-response/",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -1959,9 +1953,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/user-response/",
+									"raw": "http://localhost:8000/user-response/",
 									"host": [
-										"{{base_url}}"
+										"http://localhost:8000"
 									],
 									"path": [
 										"user-response",
@@ -2028,9 +2022,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/v1/user-score-summery/?quiz_id=1",
+							"raw": "http://localhost:8000/api/v1/user-score-summery/?quiz_id=1",
 							"host": [
-								"{{base_url}}"
+								"http://localhost:8000"
 							],
 							"path": [
 								"api",
@@ -2063,9 +2057,9 @@
 					}
 				],
 				"url": {
-					"raw": "{{base_url}}",
+					"raw": "http://localhost:8000",
 					"host": [
-						"{{base_url}}"
+						"http://localhost:8000"
 					]
 				},
 				"description": "### index route for testing"
