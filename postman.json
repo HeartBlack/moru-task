@@ -25,9 +25,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/register/",
+							"raw": "{{base_url}}/api/v1/register/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -54,9 +54,9 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8000/register/",
+									"raw": "{{base_url}}/register/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"register",
@@ -112,9 +112,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/login/",
+							"raw": "{{base_url}}/api/v1/login/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -141,9 +141,9 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8000/api/v1/login/",
+									"raw": "{{base_url}}/api/v1/login/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"api",
@@ -251,9 +251,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/categories/",
+							"raw": "{{base_url}}/api/v1/categories/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -280,9 +280,9 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8000/categories/",
+									"raw": "{{base_url}}/categories/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"categories",
@@ -355,9 +355,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/categories/",
+							"raw": "{{base_url}}/api/v1/categories/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -384,9 +384,9 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8000/categories/",
+									"raw": "{{base_url}}/categories/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"categories",
@@ -449,9 +449,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/categories/2/",
+							"raw": "{{base_url}}/api/v1/categories/2/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -478,9 +478,9 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8000/categories/1/",
+									"raw": "{{base_url}}/categories/1/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"categories",
@@ -544,9 +544,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/categories/2/",
+							"raw": "{{base_url}}/api/v1/categories/2/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -573,9 +573,9 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8000/categories/1/",
+									"raw": "{{base_url}}/categories/1/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"categories",
@@ -682,9 +682,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/questions/",
+							"raw": "{{base_url}}/api/v1/questions/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -710,9 +710,9 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8000/questions/",
+									"raw": "{{base_url}}/questions/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"questions",
@@ -785,9 +785,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/questions/",
+							"raw": "{{base_url}}/api/v1/questions/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -804,9 +804,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/questions/",
+									"raw": "{{base_url}}/questions/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"questions",
@@ -869,9 +869,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/questions/1/",
+							"raw": "{{base_url}}/api/v1/questions/1/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -898,9 +898,9 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8000/questions/1/",
+									"raw": "{{base_url}}/questions/1/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"questions",
@@ -964,9 +964,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/questions/1/",
+							"raw": "{{base_url}}/api/v1/questions/1/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -1008,9 +1008,9 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/api/v1/answers/",
+							"raw": "{{base_url}}/api/v1/answers/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -1027,9 +1027,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/answers/",
+									"raw": "{{base_url}}/answers/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"answers",
@@ -1098,9 +1098,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/answers/",
+							"raw": "{{base_url}}/api/v1/answers/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -1126,9 +1126,9 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8000/answers/",
+									"raw": "{{base_url}}/answers/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"answers",
@@ -1191,9 +1191,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/answers/1/",
+							"raw": "{{base_url}}/api/v1/answers/1/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -1220,9 +1220,9 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8000/answers/1/",
+									"raw": "{{base_url}}/answers/1/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"answers",
@@ -1277,9 +1277,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/api/v1/answers/2/",
+							"raw": "{{base_url}}/api/v1/answers/2/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -1297,9 +1297,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/api/v1/answers/2/",
+									"raw": "{{base_url}}/api/v1/answers/2/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"api",
@@ -1378,9 +1378,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/quizs/",
+							"raw": "{{base_url}}/api/v1/quizs/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -1407,9 +1407,9 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8000/quizs/",
+									"raw": "{{base_url}}/quizs/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"quizs",
@@ -1470,9 +1470,9 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/api/v1/quizs/",
+							"raw": "{{base_url}}/api/v1/quizs/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -1490,9 +1490,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/quizs/",
+									"raw": "{{base_url}}/quizs/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"quizs",
@@ -1553,9 +1553,9 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/api/v1/quizs/?answer=This first answer for question one updated",
+							"raw": "{{base_url}}/api/v1/quizs/?question=This is question two&category=This is answer 3&answer=This first answer for question one updated",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -1566,13 +1566,11 @@
 							"query": [
 								{
 									"key": "question",
-									"value": "This is question two",
-									"disabled": true
+									"value": "This is question two"
 								},
 								{
 									"key": "category",
-									"value": "This is answer 3",
-									"disabled": true
+									"value": "This is answer 3"
 								},
 								{
 									"key": "answer",
@@ -1580,7 +1578,7 @@
 								}
 							]
 						},
-						"description": "Endpoint: Get Quizzes\n\nDescription: This endpoint retrieves quizzes based on specified filters such as question, answer, and category.\n\nHTTP Method: GET\n\nQuery Parameters:\n\n- question (optional): Filter quizzes by question text.\n- answer (optional): Filter quizzes by answer text.\n- category (optional): Filter quizzes by category.\n    \n\nRequest Example:\n\n```\nGET /quizzes?question=example&answer=example&category=example\n\n```\n\nResponse:\n\n- 200 OK: Quizzes were successfully retrieved.\n- 404 Not Found: No quizzes found matching the provided filters.\n- 500 Internal Server Error: An error occurred while processing the request.\n    \n\nResponse Example (Successful):\n\n```\nHTTP/1.1 200 OK\nContent-Type: application/json\n{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"question\": {\n        \"question_id\": 123,\n        \"question_text\": \"Example question\"\n      },\n      \"answer\": {\n        \"answer_id\": 456,\n        \"answer_text\": \"Example answer\"\n      },\n      \"category\": \"Example category\",\n      \"score\": 8,\n      \"user_id\": 789,\n      \"start_time\": \"2023-05-29 12:00:00\",\n      \"end_time\": \"2023-05-29 12:30:00\"\n    },\n    {\n      \"id\": 2,\n      \"question\": {\n        \"question_id\": 789,\n        \"question_text\": \"Another question\"\n      },\n      \"answer\": {\n        \"answer_id\": 123,\n        \"answer_text\": \"Another answer\"\n      },\n      \"category\": \"Another category\",\n      \"score\": 5,\n      \"user_id\": 987,\n      \"start_time\": \"2023-05-29 13:00:00\",\n      \"end_time\": \"2023-05-29 13:30:00\"\n    }\n  ]\n}\n\n```\n\nResponse Example (No Quizzes Found):\n\n```\nHTTP/1.1 404 Not Found\nContent-Type: application/json\n{\n  \"message\": \"No quizzes found\"\n}\n\n```\n\nResponse Example (Error):\n\n```\nHTTP/1.1 500 Internal Server Error\nContent-Type: application/json\n{\n  \"message\": \"An error occurred\",\n  \"error\": \"Error message\"\n}\n\n```\n\nThe function extracts the filter parameters from the query string and constructs a query object using the `Quiz.query`. It applies the filters to the query by calling specific filter functions such as `filter_questions_by_text`, `filter_quizzes_by_answer`, and `filter_quizzes_by_category`. The resulting quizzes are transformed into a list of quiz data, including question, answer, category, score, user ID, start time, and end time. If quizzes are found, the response includes the quiz data. If no quizzes are found, a suitable error message is returned. If an error occurs during processing, an error message is returned."
+						"description": "Endpoint: Get Quizzes\n\nDescription: This endpoint retrieves quizzes based on specified filters such as question, answer, and category.\n\nHTTP Method: GET\n\nQuery Parameters:\n\n- question (optional): Filter quizzes by question text.\n- answer (optional): Filter quizzes by answer text.\n- category (optional): Filter quizzes by category.\n    \n\nRequest Example:\n\n```\nGET /quizzes?question=example&answer=example&category=example\n\n```\n\nResponse:\n\n- 200 OK: Quizzes were successfully retrieved.\n- 404 Not Found: No quizzes found matching the provided filters.\n- 500 Internal Server Error: An error occurred while processing the request.\n    \n\nResponse Example (Successful):\n\n```\nHTTP/1.1 200 OK\nContent-Type: application/json\n{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"question\": {\n        \"question_id\": 123,\n        \"question_text\": \"Example question\"\n      },\n      \"answer\": {\n        \"answer_id\": 456,\n        \"answer_text\": \"Example answer\"\n      },\n      \"category\": \"Example category\",\n      \"score\": 8,\n      \"user_id\": 789,\n      \"start_time\": \"2023-05-29 12:00:00\",\n      \"end_time\": \"2023-05-29 12:30:00\"\n    },\n    {\n      \"id\": 2,\n      \"question\": {\n        \"question_id\": 789,\n        \"question_text\": \"Another question\"\n      },\n      \"answer\": {\n        \"answer_id\": 123,\n        \"answer_text\": \"Another answer\"\n      },\n      \"category\": \"Another category\",\n      \"score\": 5,\n      \"user_id\": 987,\n      \"start_time\": \"2023-05-29 13:00:00\",\n      \"end_time\": \"2023-05-29 13:30:00\"\n    }\n  ]\n}\n\n```\n\nResponse Example (No Quizzes Found):\n\n```\nHTTP/1.1 404 Not Found\nContent-Type: application/json\n{\n  \"message\": \"No quizzes found\"\n}\n\n```\n\nResponse Example (Error):\n\n```\nHTTP/1.1 500 Internal Server Error\nContent-Type: application/json\n{\n  \"message\": \"An error occurred\",\n  \"error\": \"Error message\"\n}\n\n```"
 					},
 					"response": [
 						{
@@ -1589,9 +1587,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/quizs/",
+									"raw": "{{base_url}}/quizs/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"quizs",
@@ -1661,9 +1659,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/quizs/1/",
+							"raw": "{{base_url}}/api/v1/quizs/1/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -1673,7 +1671,7 @@
 								""
 							]
 						},
-						"description": "Endpoint: Create Quiz Entry\n\nDescription: This endpoint allows the creation of a quiz entry with the provided information.\n\nHTTP Method: POST\n\nRequest Body:\n\n- question_id: The ID of the question for the quiz entry.\n- answer_id: The ID of the answer selected for the quiz entry.\n- score: The score obtained for the quiz entry.\n- user_id: The ID of the user associated with the quiz entry.\n    \n\nRequest Example:\n\n```\nPOST /create-quiz\nContent-Type: application/json\n{\n  \"question_id\": 123,\n  \"answer_id\": 456,\n  \"score\": 8,\n  \"user_id\": 789\n}\n\n```\n\nResponse:\n\n- 200 OK: The quiz entry was successfully created.\n- 400 Bad Request: Invalid or missing data provided.\n- 404 Not Found: Question, answer, or user not found.\n    \n\nResponse Example (Successful):\n\n```\nHTTP/1.1 200 OK\nContent-Type: application/json\n{\n  \"message\": {\n    \"id\": 456,\n    \"question_id\": 123,\n    \"answer_id\": 456,\n    \"user_id\": 789,\n    \"score\": 8\n  }\n}\n\n```\n\nResponse Example (Invalid Data):\n\n```\nHTTP/1.1 400 Bad Request\nContent-Type: application/json\n{\n  \"message\": \"Please provide valid data\"\n}\n\n```"
+						"description": "Endpoint: Update Quiz Entry\n\nDescription: This endpoint allows the updating of a quiz entry with the provided information.\n\nHTTP Method: PUT\n\nRequest Body:\n\n- question_id: The ID of the question for the quiz entry.\n- answer_id: The ID of the answer selected for the quiz entry.\n- score: The score obtained for the quiz entry.\n- user_id: The ID of the user associated with the quiz entry.\n    \n\nResponse:\n\n- 200 OK: The quiz entry was successfully created.\n- 400 Bad Request: Invalid or missing data provided.\n- 404 Not Found: Question, answer, or user not found.\n    \n\nResponse Example (Successful):"
 					},
 					"response": [
 						{
@@ -1691,9 +1689,9 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8000/quizs/",
+									"raw": "{{base_url}}/quizs/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"quizs",
@@ -1747,9 +1745,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/api/v1/quizs/2/",
+							"raw": "{{base_url}}/api/v1/quizs/2/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -1758,7 +1756,8 @@
 								"2",
 								""
 							]
-						}
+						},
+						"description": "Delete Quiz"
 					},
 					"response": [
 						{
@@ -1767,9 +1766,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/api/v1/answers/2/",
+									"raw": "{{base_url}}/api/v1/answers/2/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"api",
@@ -1841,9 +1840,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/user-response/",
+							"raw": "{{base_url}}/api/v1/user-response/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -1870,9 +1869,9 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8000/user-response/",
+									"raw": "{{base_url}}/user-response/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"user-response",
@@ -1933,9 +1932,9 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/api/v1/user-response/",
+							"raw": "{{base_url}}/api/v1/user-response/",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -1953,9 +1952,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8000/user-response/",
+									"raw": "{{base_url}}/user-response/",
 									"host": [
-										"http://localhost:8000"
+										"{{base_url}}"
 									],
 									"path": [
 										"user-response",
@@ -2022,9 +2021,9 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/api/v1/user-score-summery/?quiz_id=1",
+							"raw": "{{base_url}}/api/v1/user-score-summery/?quiz_id=1",
 							"host": [
-								"http://localhost:8000"
+								"{{base_url}}"
 							],
 							"path": [
 								"api",
@@ -2057,9 +2056,9 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8000",
+					"raw": "{{base_url}}",
 					"host": [
-						"http://localhost:8000"
+						"{{base_url}}"
 					]
 				},
 				"description": "### index route for testing"

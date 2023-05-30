@@ -17,7 +17,6 @@ def create_db():
 
 @cli.command()
 def createsuperuser():
-    print("calling")
     while True:
         username = click.prompt("Username")
         password = click.prompt("Password", hide_input=True, confirmation_prompt=True)
