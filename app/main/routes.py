@@ -26,7 +26,6 @@ def register_user():
     username = request.json.get("username")
     password = request.json.get("password")
     user_type = request.json.get("user_type")
-    print("user_type", user_type)
 
     role = None  # Initialize role variable
 
@@ -38,7 +37,6 @@ def register_user():
     else:
         role = Role.NORMAL
 
-    print("role", role)
 
     if not username or not password:
         return jsonify({"message": "Username and password are required."}), 400

@@ -21,6 +21,9 @@ For the Swagger UI, visit [http://localhost:8000/swagger/](http://localhost:8000
 
 ![Swagger endpoint](screenshot/demo_2.png)
 
+---
+###### **Note: If you facing some issues with swagger you can try with postman
+---
 ### Using Postman documentation:
 In the source Folder, there is a postman.json file you can import into your postman.
 

@@ -11,7 +11,6 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         "DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/postgres"
     )
-    # print(SQLALCHEMY_DATABASE_URI)
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     POSTMAN_COLLECTION = "swagger.json"
