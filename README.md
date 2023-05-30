@@ -21,9 +21,36 @@ For the Swagger UI, visit [http://localhost:8000/swagger/](http://localhost:8000
 
 ![Swagger endpoint](screenshot/demo_2.png)
 
----
-###### **Note: If you facing some issues with swagger you can try with postman
----
+###### Note:
+***If you facing some issues with swagger you can try with the postman***
+
+### Database Configuration:
+
+To configure the database, follow the instructions below based on your environment:
+
+***Local Environment:***
+
+- Set the hostname as `localhost` if you are using the database locally.
+- Make sure to configure other settings in the `.env` file as required by the database.
+
+After setting up the database, execute the following commands:
+1. Run `flask db migrate` to perform database migrations.
+2. Run `flask db upgrade` to upgrade the database tables.
+
+***Docker Environment:***
+
+- Set the hostname as `db` if you are using the database from Docker.
+- Make sure to configure other settings in the `.env` file as required by the database.
+
+To configure the database in a Docker environment, follow these steps:
+1. Run the command `docker ps` to view the running containers.
+2. Use the command `docker exec -it [web_container_id] bash` to open a container terminal.
+3. Inside the container, execute the commands `flask db migrate` and `flask db upgrade` to perform database migrations and upgrade the database tables.
+
+Make sure to adjust the instructions according to your specific setup and requirements.
+
+
+
 ### Using Postman documentation:
 In the source Folder, there is a postman.json file you can import into your postman.
 

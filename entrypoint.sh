@@ -11,7 +11,7 @@ then
     echo "PostgreSQL started"
 fi
 
-python manage.py create_db
+# python manage.py create_db
 
 echo "================================ Sever is starting now  =================================="
 gunicorn --bind 0.0.0.0:8000 --reload wsgi:app
